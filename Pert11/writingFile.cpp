@@ -9,7 +9,7 @@ int main() {
     myFile.open("data.txt", ios::out);
     
     // Menulis teks ke dalam file
-    myFile << "Hello, World!";
+    myFile << "wenno sivan";
     
     myFile.close();
     return 0;
