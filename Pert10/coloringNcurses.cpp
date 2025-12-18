@@ -3,28 +3,35 @@
 using namespace std;
 
 int main(){
-    // Mengubah warna terminal: Background Hitam (Default), Teks Biru (1)
-    system("color 1"); 
-    
     initscr();
+    start_color(); // Mengaktifkan mode warna ncurses
     
+    // Inisialisasi pasangan warna
+    init_pair(1, COLOR_WHITE, COLOR_RED); // Pair 1: Teks Putih, BG Merah
+    init_pair(2, COLOR_RED, COLOR_WHITE); // Pair 2: Teks Merah, BG Putih
+    
+    attron(COLOR_PAIR(1)); // Mengaktifkan warna pair 1
     mvprintw(2, 2, "A");
     refresh();
-    Sleep(500); 
+    Sleep(500);
     
-    mvprintw(3, 2, "B");
+    attron(COLOR_PAIR(2)); // Mengganti ke warna pair 2
+    mvprintw(3, 2, "S");
     refresh();
-    Sleep(1000); 
+    Sleep(1000);
     
-    mvprintw(4, 2, "D");
+    attron(COLOR_PAIR(1));
+    mvprintw(4, 2, "U");
     refresh();
-    Sleep(1500); 
+    Sleep(1500);
     
-    mvprintw(5, 2, "U");
+    attron(COLOR_PAIR(2));
+    mvprintw(5, 2, "N");
     refresh();
-    Sleep(500); 
+    Sleep(500);
     
-    mvprintw(6, 2, "L");
+    attron(COLOR_PAIR(1));
+    mvprintw(6, 2, "A");
     refresh();
     
     getch();
